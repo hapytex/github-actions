@@ -1,0 +1,8 @@
+name: 'Running hlint'
+description: 'Let hlint determine code improvements'
+runs:
+  using: "composite"
+  steps:
+    - name: look for hlint suggestions
+      run: curl -sSL https://raw.github.com/ndmitchell/hlint/master/misc/run.sh | sh -s .
+      shell: bash
