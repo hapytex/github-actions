@@ -1,0 +1,20 @@
+name: 'Todos check'
+description: 'Check if files contains todos, fixmes, etc.'
+inputs:
+  directory:
+    description: 'Where do we look for files'
+    required: true
+    default: '.'
+  fileglob:
+    description: 'The glob pattern that specifies for what files we are looking'
+    required: true
+    default: '*.hs'
+  patterns:
+    description: 'For what regular expressions do we look in these files'
+    default: 'TODO|FIXME|[?][?]'
+runs:
+  using: "composite"
+  steps:
+    - name: Check for todo patterns
+      run: "! grep -i -P '${{ inputs.patterns }}' $(find '${{ inputs.directory }}' -iname '${{ inputs.fileglob }}')"
+      shell: bash
