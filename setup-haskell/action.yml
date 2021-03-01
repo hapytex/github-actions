@@ -1,7 +1,5 @@
 name: 'Haskell environment'
 description: 'Setup a Haskell environment with Haskell-stack and cabal'
-inputs: []
-outputs: []
 runs:
   using: "composite"
   steps:
