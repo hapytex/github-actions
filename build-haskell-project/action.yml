@@ -1,0 +1,17 @@
+name: 'build Haskell project'
+description: 'Setup a Haskell environment, check out the code and build the project with Haskell-stack'
+inputs:
+  ghcoptions:
+    description: Options passed to the GHC compiler
+    required: true
+    default: -Wall -Werror
+runs:
+  using: "composite"
+  steps:
+    - name: set up a Haskell environment
+      uses: hapytex/github-actions/setup-haskell@master
+    - name: checkout code
+      uses: actions/checkout@v2.3.1
+    - name: build the Haskell software
+      run: "stack build --ghc-options='${{ inputs.ghcoptions }}'"
+      shell: bash
