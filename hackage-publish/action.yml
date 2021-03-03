@@ -1,0 +1,18 @@
+name: 'Deploy to hackage'
+description: 'Upload the tarball to hackage'
+inputs:
+  hackage-user:
+    description: 'The hackage username to use to upload the package'
+    required: true
+  hackage-password:
+    description: 'The hackage password to use to upload the package'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Construct a hackage tarball
+      run: "stack sdist"
+      shell: bash
+    - name: upload the tarball
+      run: "/opt/cabal/bin/cabal upload -u '${{ inputs.hackage-user }}' -p '${{ inputs.hackage-password }}' '$(stack path --dist-dir)'/*.tar.gz --publish"
+      shell: bash
