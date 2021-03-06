@@ -14,9 +14,9 @@ runs:
       run: "stack sdist"
       shell: bash
     - name "Determine the sdist path"
-      run: stack path --dist-dir
-      shell: echo "::set-output name=sdist-path::$(stack path --local-doc-root)"
+      run: echo "::set-output name=sdist-path::$(stack path --dist-dir)"
+      shell: bash
       id: sdist-path
     - name: upload the tarball
-      run: "/opt/cabal/bin/cabal upload -u '${{ inputs.hackage-user }}' -p '${{ inputs.hackage-password }}' ${{ steps.haddock-path.outputs.haddock-path }}/*.tar.gz --publish"
+      run: "/opt/cabal/bin/cabal upload -u '${{ inputs.hackage-user }}' -p '${{ inputs.hackage-password }}' ${{ steps.sdist-path.outputs.sdist-path }}/*.tar.gz --publish"
       shell: bash
