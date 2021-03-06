@@ -13,7 +13,7 @@ runs:
     - name: Construct a hackage tarball
       run: "stack sdist"
       shell: bash
-    - name "Determine the sdist path"
+    - name: Determine the sdist path
       run: echo "::set-output name=sdist-path::$(stack path --dist-dir)"
       shell: bash
       id: sdist-path
