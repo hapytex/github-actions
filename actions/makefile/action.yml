@@ -1,0 +1,13 @@
+name: 'Run a Makefile'
+description: 'Run the Makefile for a certain target'
+inputs:
+  target:
+    description: The target that is compiled
+    required: true
+    default: --
+runs:
+  using: "composite"
+  steps:
+    - name: build the Haskell software
+      run: "make '${{ inputs.target }}'"
+      shell: bash
