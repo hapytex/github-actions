@@ -1,0 +1,16 @@
+name: 'build Haskell project'
+description: 'Build the project with Haskell-stack'
+inputs:
+  globpattern:
+    description: The glob pattern that specifies what file to validate
+    required: true
+    default: .
+runs:
+  using: "composite"
+  steps:
+    - name: install the yamllint package
+      run: "pip3 install --user yamllint"
+      shell: bash
+    - name: Run yaml lint
+      run: "yamllint -d relaxed ${{ inputs.globpattern }}"
+      shell: bash
