@@ -4,7 +4,7 @@ inputs:
   globpattern:
     description: The glob pattern that specifies what file to validate
     required: true
-    default: .
+    default: *.yaml *.yml
 runs:
   using: "composite"
   steps:
