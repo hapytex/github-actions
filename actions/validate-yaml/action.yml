@@ -1,5 +1,5 @@
-name: 'build Haskell project'
-description: 'Build the project with Haskell-stack'
+name: 'Validate yaml files'
+description: 'Check if the yaml files are valid'
 inputs:
   globpattern:
     description: The glob pattern that specifies what file to validate

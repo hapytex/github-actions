@@ -1,0 +1,16 @@
+name: 'Validate json'
+description: 'Validate json files in the given directory'
+inputs:
+  globpattern:
+    description: The glob pattern that specifies what file to validate
+    required: true
+    default: .
+runs:
+  using: "composite"
+  steps:
+    - name: install the jsonlint package
+      run: "sudo apt-get install jsonlint"
+      shell: bash
+    - name: Run jsonlint
+      run: "jsonlint-php ${{ inputs.globpattern }}"
+      shell: bash
