@@ -3,7 +3,7 @@ on: push
 
 jobs:
   linux1:
-    name: Build the Haskell software
+    name: Validate yml of actions
     runs-on: ubuntu-latest
     steps:
     - name: checkout code
