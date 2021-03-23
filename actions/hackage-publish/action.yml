@@ -10,6 +10,9 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Create documentation
+      run: "stack haddock"
+      shell: bash
     - name: Construct a hackage tarball
       run: "stack sdist"
       shell: bash
