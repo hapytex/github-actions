@@ -16,7 +16,7 @@ runs:
   using: "composite"
   steps:
     - name: Create the CNAME file
-      run: "touch \"${{ inputs.folders }}/${{ inputs.cnamefile }}\""
+      run: "touch \"${{ inputs.folder }}/${{ inputs.cnamefile }}\""
       shell: bash
     - name: Create a CNAME file
       run: "echo \"${{ inputs.cname }}\" > \"${{ inputs.folder }}/${{ inputs.cnamefile }}\""
