@@ -1,0 +1,16 @@
+name: 'Add CNAME to directory'
+description: 'Add a CNAME file to a directory, typically for GitHub pages'
+inputs:
+  directory:
+    description: The directory where to add the item
+    required: true
+    default: "."
+  cname:
+    description: The value for the CNAME file
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Create a CNAME file
+      run: "echo \"${{ inputs.cname }}\" > \"${{ inputs.directory }}/CNAME\""
+      shell: bash
