@@ -16,5 +16,5 @@ runs:
   using: "composite"
   steps:
     - name: Create a CNAME file
-      run: "echo \"${{ inputs.cname }}\" > \"${{ inputs.directory }}/$${{ inputs.cnamefile }}\""
+      run: "echo \"${{ inputs.cname }}\" > \"${{ inputs.directory }}/${{ inputs.cnamefile }}\""
       shell: bash
