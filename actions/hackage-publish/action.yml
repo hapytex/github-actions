@@ -21,7 +21,7 @@ runs:
       shell: bash
       id: sdist-path
     - name: upload the tarball
-      run: "stack upload"
+      run: "stack upload ."
       shell: bash
       env:
         HACKAGE_USERNAME: "${{ inputs.HACKAGE_USERNAME }}"
