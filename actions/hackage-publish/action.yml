@@ -1,10 +1,10 @@
 name: 'Deploy to hackage'
 description: 'Upload the tarball to hackage'
 inputs:
-  hackage-user:
+  HACKAGE_USERNAME:
     description: 'The hackage username to use to upload the package'
     required: true
-  hackage-password:
+  HACKAGE_PASSWORD:
     description: 'The hackage password to use to upload the package'
     required: true
 runs:
@@ -21,5 +21,8 @@ runs:
       shell: bash
       id: sdist-path
     - name: upload the tarball
-      run: "/opt/cabal/bin/cabal upload -u '${{ inputs.hackage-user }}' -p '${{ inputs.hackage-password }}' ${{ steps.sdist-path.outputs.sdist-path }}/*.tar.gz --publish"
+      run: "stack upload"
       shell: bash
+      env:
+        HACKAGE_USERNAME: "${{ inputs.HACKAGE_USERNAME }}"
+        HACKAGE_PASSWORD: "${{ inputs.HACKAGE_PASSWORD }}"
