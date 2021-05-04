@@ -1,0 +1,8 @@
+name: 'run install.sh'
+description: 'Run the install.sh file in the root directory'
+runs:
+  using: "composite"
+  steps:
+    - name: run the installation file
+      run: "./install.sh"
+      shell: bash
