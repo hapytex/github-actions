@@ -5,9 +5,13 @@ inputs:
     description: Options passed to the GHC compiler
     required: true
     default: -Wall -Werror
+  resolver:
+    description: Which resolver is used to compile the package
+    required: true
+    default: lts-17.11
 runs:
   using: "composite"
   steps:
     - name: build the Haskell software
-      run: "stack build --ghc-options='${{ inputs.ghcoptions }}'"
+      run: "stack build --resolver '${{ input.resolver }}' --ghc-options='${{ inputs.ghcoptions }}'"
       shell: bash
