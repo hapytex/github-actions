@@ -13,5 +13,5 @@ runs:
   using: "composite"
   steps:
     - name: build the Haskell software
-      run: "stack build --resolver '${{ input.resolver }}' --ghc-options='${{ inputs.ghcoptions }}'"
+      run: "stack build --resolver '${{ inputs.resolver }}' --ghc-options='${{ inputs.ghcoptions }}'"
       shell: bash
