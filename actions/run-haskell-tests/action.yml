@@ -13,5 +13,5 @@ runs:
   using: "composite"
   steps:
     - name: Run the test
-      run: "stack test --no-terminal -skip-ghc-check \"${{ inputs.directory }}\" --resolver \"${{ inputs.resolver }}\""
+      run: "stack --no-terminal --skip-ghc-check test --resolver \"${{ inputs.resolver }}\""
       shell: bash
