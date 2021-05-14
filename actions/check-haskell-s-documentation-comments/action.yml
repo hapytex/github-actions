@@ -1,4 +1,4 @@
-name: 'Check Haskell's documentation comments'
+name: "Check Haskell's documentation comments"
 description: 'Check for non-sensical documentation comments'
 inputs:
   directory:
@@ -13,5 +13,5 @@ runs:
   using: "composite"
   steps:
     - name: Check for todo patterns
-      run: "! grep -i -P '\s*\w.*[-][-]\s*[|]' $(find '${{ inputs.directory }}' -iname '${{ inputs.fileglob }}')"
+      run: "! grep -i -P '\\s*\\w.*[-][-]\\s*[|]' $(find '${{ inputs.directory }}' -iname '${{ inputs.fileglob }}')"
       shell: bash
