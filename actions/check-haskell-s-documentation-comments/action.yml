@@ -1,0 +1,17 @@
+name: 'Check Haskell's documentation comments'
+description: 'Check for non-sensical documentation comments'
+inputs:
+  directory:
+    description: 'Where do we look for files'
+    required: true
+    default: '.'
+  fileglob:
+    description: 'The glob pattern that specifies for what files we are looking'
+    required: true
+    default: '*.hs'
+runs:
+  using: "composite"
+  steps:
+    - name: Check for todo patterns
+      run: "! grep -i -P '\s*\w.*[-][-]\s*[|]' $(find '${{ inputs.directory }}' -iname '${{ inputs.fileglob }}')"
+      shell: bash
