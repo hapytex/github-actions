@@ -5,9 +5,13 @@ inputs:
     description: The resolver used to run the tests
     required: true
     default: lts-17
+  output-file:
+    description: The name of the HTML file that will show the output of the benchmarks.
+    required: true
+    default: benchmarks.html
 runs:
   using: "composite"
   steps:
     - name: Run the test
-      run: "stack --no-terminal --skip-ghc-check bench --resolver \"${{ inputs.resolver }}\""
+      run: "stack --no-terminal --skip-ghc-check bench --benchmark-arguments \"--output=${{ inputs.output-file }}\" --resolver \"${{ inputs.resolver }}\""
       shell: bash
