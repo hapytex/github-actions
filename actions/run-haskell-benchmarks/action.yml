@@ -1,0 +1,13 @@
+name: 'Run Haskell benchmarks'
+description: 'Run the Haskell benchmarks with a specific resolver'
+inputs:
+  resolver:
+    description: The resolver used to run the tests
+    required: true
+    default: lts-17
+runs:
+  using: "composite"
+  steps:
+    - name: Run the test
+      run: "stack --no-terminal --skip-ghc-check bench --resolver \"${{ inputs.resolver }}\""
+      shell: bash

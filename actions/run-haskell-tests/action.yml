@@ -1,10 +1,6 @@
 name: 'Run Haskell tests'
 description: 'Run the Haskell tests for a given testbench and a specific resolver'
 inputs:
-  directory:
-    description: The directory where the test
-    required: true
-    default: test
   resolver:
     description: The resolver used to run the tests
     required: true
