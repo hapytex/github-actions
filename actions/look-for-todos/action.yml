@@ -11,7 +11,7 @@ inputs:
     default: '*.hs'
   patterns:
     description: 'For what regular expressions do we look in these files'
-    default: 'TODO|FIXME|[?][?]'
+    default: 'TODO|FIXME|[?][?]|\bundefined\b'
 runs:
   using: "composite"
   steps:
