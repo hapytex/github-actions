@@ -4,7 +4,7 @@ inputs:
   resolver:
     description: The resolver used to run the tests
     required: true
-    default: lts-17
+    default: lts-19.12
   output-file:
     description: The name of the HTML file that will show the output of the benchmarks.
     required: true
