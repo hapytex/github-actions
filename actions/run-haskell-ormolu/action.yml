@@ -17,6 +17,9 @@ runs:
   using: "composite"
   steps:
     - name: Install ormolu
+      run: "stack update --resolver \"${{ inputs.resolver }}\""
+      shell: bash
+    - name: Install ormolu
       run: "stack install --resolver \"${{ inputs.resolver }}\" ormolu"
       shell: bash
     - name: Run the test
