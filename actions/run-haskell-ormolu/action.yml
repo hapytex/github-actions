@@ -1,0 +1,24 @@
+name: 'Run Haskell benchmarks'
+description: 'Run the Haskell benchmarks with a specific resolver'
+inputs:
+  resolver:
+    description: The resolver used to run the tests
+    required: true
+    default: lts-19.12
+  filenames:
+    description: pattern of the filenames to check
+    required: true
+    default: "*.hs"
+  path:
+    description: path of the files to check
+    required: true
+    default: src
+runs:
+  using: "composite"
+  steps:
+    - name: Install ormolu
+      run: "stack install --resolver \"${{ inputs.resolver }}\" ormolu"
+      shell: bash
+    - name: Run the test
+      run: "ormolu --mode check $(find '${{ inputs.path }}' -name '${{ inputs.filenames }}')"
+      shell: bash
