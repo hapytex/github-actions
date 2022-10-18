@@ -25,7 +25,7 @@ runs:
       shell: bash
       id: sdist-path
     - name: upload the tarball
-      run: "echo 'n' | stack --resolver '${{ inputs.resolver }}' upload ."
+      run: "echo 'n' | stack --resolver '${{ inputs.resolver }}' upload --candidate ."
       shell: bash
       env:
         HACKAGE_USERNAME: "${{ inputs.HACKAGE_USERNAME }}"
