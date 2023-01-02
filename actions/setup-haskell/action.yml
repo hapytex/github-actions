@@ -3,8 +3,8 @@ description: 'Setup a Haskell environment with Haskell-stack and cabal'
 runs:
   using: "composite"
   steps:
-    - name: add ppa
-      run: sudo add-apt-repository -y ppa:hvr/ghc
+    # - name: add ppa
+    #   run: sudo add-apt-repository -y ppa:hvr/ghc
       shell: bash
     - name: update package database
       run: sudo apt-get update
