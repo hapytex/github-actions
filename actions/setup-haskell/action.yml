@@ -10,5 +10,8 @@ runs:
       run: sudo apt-get update
       shell: bash
     - name: install required packages
-      run: sudo apt-get install cabal-install-3.0 haskell-stack
+      run: sudo apt-get install cabal-install haskell-stack
+      shell: bash
+    - name: upgrade stack
+      run: stack upgrade
       shell: bash
