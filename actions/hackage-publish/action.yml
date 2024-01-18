@@ -10,7 +10,7 @@ inputs:
   resolver:
     description: 'Which resolver is used to compile the package'
     required: true
-    default: lts-19.12
+    default: lts-21.1
 runs:
   using: "composite"
   steps:
